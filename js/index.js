@@ -101,10 +101,27 @@ window.addEventListener("DOMContentLoaded", () => {
     });
     // Display total score
     const scoreDisplay = document.querySelector("#score");
-    scoreDisplay.innerHTML = ` TOTAL SCORE: ${score} out of ${quizArray.length}`;
+    scoreDisplay.innerHTML = ` TOTAL SCORE: ${score} / ${quizArray.length}`;
 
-   btnSubmit.style.display = "none";
+    btnSubmit.style.display = "none";
   };
+
+    // When start button clicked, start countdown timer
+  const btnStart = document.querySelector("#btnStart");
+  btnStart.addEventListener("click", () => {
+    // countdown timer
+    let count = 30;
+    const interval = setInterval(function () {
+      let time = document.getElementById("time");
+      time.innerHTML = count;
+      count--;
+      if (count === 0) {
+        clearInterval(interval);
+        time.innerHTML = `${count}: Time is up!`;
+        calculateScore();
+      }
+    }, 1000);
+  })
 
   // event listener for submit button to trigger score display
   const btnSubmit = document.querySelector("#btnSubmit");
@@ -117,19 +134,6 @@ window.addEventListener("DOMContentLoaded", () => {
   btnReset.addEventListener("click", () => {
     location.reload();
   });
-
-  // countdown timer
-  let count = 30;
-  const interval = setInterval(function () {
-    time = document.getElementById("time");
-    time.innerHTML = count;
-    count--;
-    if (count === 0) {
-      clearInterval(interval);
-      time.innerHTML = `${count}: Time is up!`;
-      calculateScore();
-    }
-  }, 1000);
 
   // call the displayQuiz function
   displayQuiz();
