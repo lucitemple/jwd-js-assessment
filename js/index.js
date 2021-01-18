@@ -103,15 +103,13 @@ window.addEventListener("DOMContentLoaded", () => {
     const scoreDisplay = document.querySelector("#score");
     scoreDisplay.innerHTML = ` TOTAL SCORE: ${score} out of ${quizArray.length}`;
 
-    // flip quizEnded
-    //quizEnded = true;
+   btnSubmit.style.display = "none";
   };
 
   // event listener for submit button to trigger score display
   const btnSubmit = document.querySelector("#btnSubmit");
   btnSubmit.addEventListener("click", () => {
     calculateScore();
-    btnSubmit.style.display = "none";
   });
 
   // event listener for reset button to reset quiz
