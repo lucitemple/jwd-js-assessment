@@ -56,8 +56,6 @@ window.addEventListener("DOMContentLoaded", () => {
     },
   ];
 
-  //const quizEnded = false;
-
   // function to Display the quiz questions and answers from the object
   const displayQuiz = () => {
     const quizWrap = document.querySelector("#quizWrap");
@@ -110,7 +108,7 @@ window.addEventListener("DOMContentLoaded", () => {
   const btnStart = document.querySelector("#btnStart");
   btnStart.addEventListener("click", () => {
     // countdown timer
-    let count = 30;
+    let count = 15;
     const interval = setInterval(function () {
       let time = document.getElementById("time");
       time.innerHTML = count;
